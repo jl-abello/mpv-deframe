@@ -1,5 +1,7 @@
 # mpv sin marcos de youtube
 
+presiona **g** para quitar el marco
+
 ~~~
 mkdir -p ~/.config/mpv/scripts/
 cp * ~/.config/mpv/scripts/

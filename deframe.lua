@@ -1,10 +1,10 @@
--- default keybinding: n
+-- default keybinding: g
 -- add the following to your input.conf to change the default keybinding:
 -- keyname script_binding auto_load_deframe
 local utils = require 'mp.utils'
 function load_deframe_fn()
     mp.osd_message("Search frame...")
-    subl = "/home/fuquo/.config/mpv/scripts/deframe"
+    subl = "/usr/local/bin/deframe"
     t = {}
     t.args = {subl,mp.get_property("path")}
     res = utils.subprocess(t)
