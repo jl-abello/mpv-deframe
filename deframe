@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+#	corta los videos que tienen marcos en youtube
+#
+
+# entrada
+ENTRADA="$*"
+
+# capturas de panalla
+ffmpegthumbnailer -i "$ENTRADA" -s 0 -t "15%" -o /tmp/15.png 2> /dev/null
+ffmpegthumbnailer -i "$ENTRADA" -s 0 -t "75%" -o /tmp/75.png 2> /dev/null
+
+# corte con la mascara
+CORTE=$(composite /tmp/15.png /tmp/75.png -compose difference - 2> /dev/null | convert - -threshold 10% -format "%@" info: 2>  /dev/null | sed 's/x/:/g; s/+/:/g')
+echo "$CORTE"
